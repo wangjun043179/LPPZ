@@ -58,7 +58,7 @@ Slider.prototype.createUI= function(){
 	$ul.css({
 		position:"absolute",
 		bottom:"10px",
-		left:"300px",
+		left:"40px",
 		"list-style":"none",
 		"z-index":2
 	});
@@ -66,12 +66,10 @@ Slider.prototype.createUI= function(){
 	
 	//2)、豆豆
 	for(let i=0;i<this.imgs.length;i++){
-		let $li = $("<li>"+(i+1)+"</li>");
+		let $li = $("<li></li>");
 		$li.css({
-			textAlign:"center",
-			lineHeight:this.doudouSize+"px",
 			float:"left",
-			"margin-left":"20px",
+			"margin-left":"10px",
 			width:this.doudouSize+"px",
 			height:this.doudouSize+"px",
 			backgroundColor:i==0?this.doudouHighColor:this.doudouColor,

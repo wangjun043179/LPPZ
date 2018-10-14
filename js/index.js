@@ -1,19 +1,3 @@
-let s1 = new Slider($(".slider"),913,456,["img/index/home1_lunbo_01.jpg","img/index/home1_lunbo_02.jpg","img/index/home1_lunbo_03.jpg","img/index/home1_lunbo_04.jpg","img/index/home1_lunbo_01.jpg","img/index/home1_lunbo_02.jpg"],
-				30,"gray","#1add9f",
-				true,-1,3000);
-$(".header-title-nav ul li").each(function(){
-	$(this).hover(
-		function(){
-			$(this).css({
-				transition:"all 2s linear",
-				transform:"scale(1.5)"
-			})
-		},
-		function(){
-			$(this).css({
-				transition:"all 2s linear",
-				transform:"scale(1)"
-			})
-		}
-	)
-});
+let s1 = new Slider($(".slider"),211,140,["img/index/slider/slider1.jpg","img/index/slider/slider2.jpg","img/index/slider/slider3.jpg","img/index/slider/slider4.jpg","img/index/slider/slider5.jpg","img/index/slider/slider6.jpg"],
+				10,"gray","#d71d22",
+				true,-1,1500);
