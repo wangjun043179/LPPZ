@@ -15,3 +15,198 @@ input, textarea, select { font-family: inherit; font-size: inherit; font-weight:
 legend { color: #000; }
 #yui3-css-stamp.cssreset { display: none; }
 a { text-decoration: none; }
+/*header*/
+.logo{
+	animation-name: rubberBand;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+nav{
+	height:90px;
+	background:#f04e28;
+}
+.container{
+	height:90px;
+	width:1200px;
+	margin:0 auto;
+}
+.container a{
+	float:left;
+}
+.container img{
+	padding-top:40px;
+}
+.nav-content ul li a{
+	width:100px;
+	font-size:14px;
+	height:90px;
+	color:#fff;
+	line-height:110px;
+	text-align:center;
+}
+.nav-content ul li .tit:hover{
+	background:#ec6d3d;
+	font-size:18px;
+	line-height:90px;
+}
+.content{
+	padding:0;
+	margin:0;
+	position:absolute;
+	top:90px;
+	left:0;
+	background:#ec6d3d;
+	width:100%;
+	text-align:center;
+	display:none;
+}
+.content ul{
+	overflow:hidden;
+	display:inline-block;
+	padding:0 70px;
+	margin:0 auto;
+}
+.products ul{
+	padding:0 150px;
+}
+.content ul li{
+	display:inline-block;
+}
+.content ul li a{
+	display:block;
+	width:150px;
+	height:120px;
+	float:left;
+	text-align:center;
+	opacity:0.7;
+}
+.aboutUs ul li:nth-child(1) a{
+	background-image:url(../img/index/icon-nav/icon-menu-a1.png);
+}
+.aboutUs ul li:nth-child(2) a{
+	background-image:url(../img/index/icon-nav/icon-menu-a2.png);
+}
+.aboutUs ul li:nth-child(3) a{
+	background-image:url(../img/index/icon-nav/icon-menu-a3.png);
+}
+.aboutUs ul li:nth-child(4) a{
+	background-image:url(../img/index/icon-nav/icon-menu-a4.png);
+}
+.aboutUs ul li:nth-child(5) a{
+	background-image:url(../img/index/icon-nav/icon-menu-a5.png);
+}
+.aboutUs ul li:nth-child(6) a{
+	background-image:url(../img/index/icon-nav/icon-menu-a6.png);
+}
+.aboutUs ul li:nth-child(7) a{
+	background-image:url(../img/index/icon-nav/icon-menu-a7.png);
+}
+.news ul li:nth-child(1) a{
+	background-image:url(../img/index/icon-nav/icon-menu-b1.png);
+}
+.news ul li:nth-child(2) a{
+	background-image:url(../img/index/icon-nav/icon-menu-b2.png);
+}
+.news ul li:nth-child(3) a{
+	background-image:url(../img/index/icon-nav/icon-menu-b3.png);
+}
+.products ul li:nth-child(1) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c1.png);
+}
+.products ul li:nth-child(2) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c2.png);
+}
+.products ul li:nth-child(3) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c3.png);
+}
+.products ul li:nth-child(4) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c4.png);
+}
+.products ul li:nth-child(5) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c5.png);
+}
+.products ul li:nth-child(6) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c6.png);
+}
+.products ul li:nth-child(7) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c7.png);
+}
+.products ul li:nth-child(8) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c8.png);
+}
+.products ul li:nth-child(9) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c9.png);
+}
+.products ul li:nth-child(10) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c10.png);
+}
+.products ul li:nth-child(11) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c11.png);
+}
+.products ul li:nth-child(12) a{
+	background-image:url(../img/index/icon-nav/icon-menu-c12.png);
+}
+.join ul li:nth-child(1) a{
+	background-image:url(../img/index/icon-nav/icon-menu-d1.png);
+}
+.join ul li:nth-child(2) a{
+	background-image:url(../img/index/icon-nav/icon-menu-d2.png);
+}
+.join ul li:nth-child(3) a{
+	background-image:url(../img/index/icon-nav/icon-menu-d3.png);
+}
+.join ul li:nth-child(4) a{
+	background-image:url(../img/index/icon-nav/icon-menu-d4.png);
+}
+.purchase ul li:nth-child(1) a{
+	background-image:url(../img/index/icon-nav/icon-menu-e1.png);
+}
+.purchase ul li:nth-child(2) a{
+	background-image:url(../img/index/icon-nav/icon-menu-e2.png);
+}
+.purchase ul li:nth-child(3) a{
+	background-image:url(../img/index/icon-nav/icon-menu-e3.png);
+}
+.purchase ul li:nth-child(4) a{
+	background-image:url(../img/index/icon-nav/icon-menu-e4.png);
+}
+.store ul li a{
+	border:1px solid white;
+	border-radius:3px;
+	font-size:12px;
+	width:60px;
+	height:20px;
+	line-height:20px;
+	margin-left:5px;
+	margin-top:45px;
+	color:#fff;
+	text-align:center;
+}
+.store ul li a:hover{
+	background:#fff;
+	color:#f04e28;
+}
+/*首页logo动画效果*/
+@keyframes rubberBand{
+	0% {
+	    transform: scale3d(1, 1, 1);
+	}
+	30% {
+	    transform: scale3d(1.25, 0.75, 1);
+	}
+	40% {
+	    transform: scale3d(0.75, 1.25, 1);
+	}
+	50% {
+	    transform: scale3d(1.15, 0.85, 1);
+	}
+	65% {
+	    transform: scale3d(.95, 1.05, 1);
+	}
+	75% {
+	    transform: scale3d(1.05, .95, 1);
+	}
+	100% {
+	    transform: scale3d(1, 1, 1);
+	}
+}
