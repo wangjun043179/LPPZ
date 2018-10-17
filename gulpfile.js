@@ -31,6 +31,10 @@ gulp.task("copy-js",function(){
 gulp.task("sass",function(){
 	gulp.src("sass/**/*.scss").pipe(sass()).pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ\\css"))
 });
+//复制所有php文件
+gulp.task("copy-php",function(){
+	gulp.src("*.php").pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ"))
+});
 // gulp.task("data",function(){
 // 	gulp.src(["xml/*.xml","json/*.json","!json/test.json"]).pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ\\data"));
 // });
@@ -41,4 +45,5 @@ gulp.task("watch",function(){
 	// gulp.watch("css/**/*.css",["copy-css"]);
 	gulp.watch("js/**/*.js",["copy-js"]);
 	gulp.watch("sass/**/*.scss",["sass"]);
+	gulp.watch("*.php",["copy-php"]);
 });

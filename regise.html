@@ -5,25 +5,128 @@
 	<title>用户注册页面</title>
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<link rel="stylesheet" href="assets/css/supersized.css">
-	<link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">  
+    <style type="text/css">
+        form span{
+            display: block;
+            width: 100%;
+            margin-top: 25px;
+        }
+        .goLogin{
+            font-size: 30px;
+            position: absolute;
+            right: 30px;
+            top: 30px;
+        }
+        .goLogin a{
+            text-decoration: none;
+            color: #f60;
+        }
+    </style>
 </head>
 <body>
 	<div class="page-container" style="padding-bottom: 50px;">
         <h1>用户注册界面</h1>
-        <form action="addUserServlet" method="post" name="myform">
-            <input type="text" name="username" class="input" placeholder="请输入用户名" />
-            <input type="password" name="password" class="input" placeholder="请输入密码" />
-            <input type="text" name="sex" class="input" placeholder="请输入性别" />
-            <input type="text" name="age" class="input" placeholder="请确认年龄" />
-            <input type="text" name="tel" class="input" placeholder="请确认电话" />
-            <input type="text" name="address" class="input" placeholder="请确认地址" />
+        <form action="Regise.php" method="post" name="myform">
+            <input type="text" name="username" id="username" class="input" placeholder="请输入用户名" />
+            <span class="usernamespan"></span>
+            <input type="password" name="password" id="password" class="input" placeholder="请输入密码" />
+            <span class="passwordspan"></span>
+            <input type="text" name="sex" id="sex" class="input" placeholder="请输入性别" />
+            <span class="sexspan"></span>
+            <input type="text" name="age" id="age" class="input" placeholder="请确认年龄" />
+            <span class="agespan"></span>
+            <input type="text" name="tel" id="tel" class="input" placeholder="请确认电话" />
+            <span class="telspan"></span>
+            <input type="text" name="address" id="address" class="input" placeholder="请确认地址" />
+            <span class="addressspan"></span>
              <button type="submit">注册</button>
              <button type="reset">重置</button>
             <div class="error"><span>+</span></div>
         </form>
+    </div>
+    <div class="goLogin">
+        <a href="login.html">点此跳转到登录界面</a>
     </div>
 </body>
 </html>
 <script src="assets/js/jquery-1.8.2.min.js"></script>
 <script src="assets/js/supersized.3.2.7.min.js"></script>
 <script src="assets/js/supersized-init.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        //用户名正则检验
+        $("#username").keyup(function(){
+            var pattern = /^[\u4e00-\u9fa5]{2,10}$/;   //纯中文
+            // var pattern =/^[\u4e00-\u9fa5]/;   //中英文混写，中文开头
+            var str = pattern.test($("#username").val());
+            if(str){
+                $(".usernamespan").html("√");
+                $(".usernamespan").css({color:"green"});
+            }else{
+                $(".usernamespan").html("用户名必须为中文,限制2-10位");
+                $(".usernamespan").css({color:"red"});
+            }
+        });
+        //密码正则检验
+        $("#password").keyup(function(){
+            var pattern = /^[a-zA-Z]\w{5,15}$/;   
+            var str = pattern.test($("#password").val());
+            if(str){
+                $(".passwordspan").html("√");
+                $(".passwordspan").css({color:"green"});
+            }else{
+                $(".passwordspan").html("密码长度为6-16位,限制为字母开头，只能包含字母，数字，下划线");
+                 $(".passwordspan").css({color:"red"});
+            }
+        });
+        //性别正则检验
+        $("#sex").keyup(function(){
+            var pattern = /^['男'|'女']$/;   
+            var str = pattern.test($("#sex").val());
+            if(str){
+                $(".sexspan").html("√");
+                $(".sexspan").css({color:"green"});
+            }else{
+                $(".sexspan").html("性别限制为男或女");
+                $(".sexspan").css({color:"red"});
+            }
+        });
+        //年龄正则检验
+        $("#age").keyup(function(){
+            var pattern = /^(?:[1-9][0-9]?|1[01][0-9]|120)$/;
+            // var pattern = /^([1][0-9]?|1[01][0-9]|120)$/;
+            var str = pattern.test($("#age").val());
+            if(str){
+                $(".agespan").html("√");
+                $(".agespan").css({color:"green"});
+            }else{
+                $(".agespan").html("年龄限制为1-120");
+                $(".agespan").css({color:"red"});
+            }
+        });
+        //电话正则检验
+        $("#tel").keyup(function(){
+            // var pattern = /^[1][\d]{10}$/;
+            var pattern = /^1[3|4|5|8][\d]{9}$/;
+            var str = pattern.test($("#tel").val());
+            if(str){
+                $(".telspan").html("√");
+                $(".telspan").css({color:"green"});
+            }else{
+                $(".telspan").html("手机号为13/14/15/18开头，限制为11位");
+                $(".telspan").css({color:"red"});
+            }
+        });
+        //地址正则检验
+        $("#address").keyup(function(){
+            var pattern = /^[\u4e00-\u9fa5]+$/;   
+            var str = pattern.test($("#address").val());
+            if(str){
+                $(".addressspan").html("√");
+            }else{
+                $(".addressspan").html("密码长度为6-16位,且必须包含数字，字母");
+            }
+        })
+    }
+</script>

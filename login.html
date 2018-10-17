@@ -5,19 +5,45 @@
 	<link rel="stylesheet" href="assets/css/reset.css">
 	<link rel="stylesheet" href="assets/css/supersized.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+    <style type="text/css">
+        .goRegise{
+            font-size: 30px;
+            position: absolute;
+            right: 30px;
+            top: 30px;
+        }
+        .goRegise a{
+            text-decoration: none;
+            color: #f60;
+        }
+    </style>
 </head>
 <body>
 	<div class="page-container">
         <h1>登录界面</h1>
-        <form action="loginServlet" method="post" name="myform">
-            <input type="text" name="username" class="username" placeholder="请输入用户名" />
+        <form action="Login.php" method="post" name="myform">
+            <input type="text" name="username" id="username" class="username" placeholder="请输入用户名" />
             <input type="password" name="password" class="password" placeholder="请输入密码" />
-            <button type="submit">当然是选择登录了</button>
+            <button type="submit" id="btn">当然是选择登录了</button>
             <div class="error"><span>+</span></div>
         </form>
+    </div>
+    <div class="goRegise">
+        <a href="regise.html">点此跳转到注册界面</a>
     </div>
 </body>
 </html>
 <script src="assets/js/jquery-1.8.2.min.js"></script>
 <script src="assets/js/supersized.3.2.7.min.js"></script>
 <script src="assets/js/supersized-init.js"></script>
+<script type="text/javascript" src="js/Cookie.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+        $("#btn").click(function(){
+            //保存Cookie
+            setCookie("username",$("#username").val(),3);
+            //跳转首页
+            location.href = "index.html";
+        });
+    }
+</script>
