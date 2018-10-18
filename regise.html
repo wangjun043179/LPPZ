@@ -40,8 +40,8 @@
             <span class="telspan"></span>
             <input type="text" name="address" id="address" class="input" placeholder="请确认地址" />
             <span class="addressspan"></span>
-             <button type="submit">注册</button>
-             <button type="reset">重置</button>
+            <button type="submit" id="zhuceBtn" value="disabled">注册</button>
+            <button type="reset">重置</button>
             <div class="error"><span>+</span></div>
         </form>
     </div>
@@ -54,79 +54,117 @@
 <script src="assets/js/supersized.3.2.7.min.js"></script>
 <script src="assets/js/supersized-init.js"></script>
 <script type="text/javascript">
-    window.onload = function(){
+    $(function(){
+        //定义变量用来验证正则是否全部输入正确
+        let verify = false;
         //用户名正则检验
         $("#username").keyup(function(){
+           verifyUserName(); 
+        });
+        function verifyUserName(){
             var pattern = /^[\u4e00-\u9fa5]{2,10}$/;   //纯中文
             // var pattern =/^[\u4e00-\u9fa5]/;   //中英文混写，中文开头
             var str = pattern.test($("#username").val());
             if(str){
                 $(".usernamespan").html("√");
                 $(".usernamespan").css({color:"green"});
+                verify = true;
             }else{
                 $(".usernamespan").html("用户名必须为中文,限制2-10位");
                 $(".usernamespan").css({color:"red"});
+                verify = false;
             }
-        });
+            return str;
+        }
         //密码正则检验
         $("#password").keyup(function(){
+            verifyUserPass();
+        });
+        function verifyUserPass(){
             var pattern = /^[a-zA-Z]\w{5,15}$/;   
             var str = pattern.test($("#password").val());
             if(str){
                 $(".passwordspan").html("√");
                 $(".passwordspan").css({color:"green"});
+                verify = true;
             }else{
                 $(".passwordspan").html("密码长度为6-16位,限制为字母开头，只能包含字母，数字，下划线");
-                 $(".passwordspan").css({color:"red"});
+                $(".passwordspan").css({color:"red"});
+                verify = false;
             }
-        });
+            return str;
+        }
         //性别正则检验
         $("#sex").keyup(function(){
+           verifyUserSex();
+        });
+        function verifyUserSex(){
             var pattern = /^['男'|'女']$/;   
             var str = pattern.test($("#sex").val());
             if(str){
                 $(".sexspan").html("√");
                 $(".sexspan").css({color:"green"});
+                verify = true;
             }else{
                 $(".sexspan").html("性别限制为男或女");
                 $(".sexspan").css({color:"red"});
+                verify = false;
             }
-        });
+            return str;
+        }
         //年龄正则检验
         $("#age").keyup(function(){
+            verifyUserAge();
+        });
+        function verifyUserAge(){
             var pattern = /^(?:[1-9][0-9]?|1[01][0-9]|120)$/;
             // var pattern = /^([1][0-9]?|1[01][0-9]|120)$/;
             var str = pattern.test($("#age").val());
             if(str){
                 $(".agespan").html("√");
                 $(".agespan").css({color:"green"});
+                verify = true;
             }else{
                 $(".agespan").html("年龄限制为1-120");
                 $(".agespan").css({color:"red"});
+                verify = false;
             }
-        });
+            return str;
+        }
         //电话正则检验
         $("#tel").keyup(function(){
+            verifyUserTel();
+        });
+        function verifyUserTel(){
             // var pattern = /^[1][\d]{10}$/;
             var pattern = /^1[3|4|5|8][\d]{9}$/;
             var str = pattern.test($("#tel").val());
             if(str){
                 $(".telspan").html("√");
                 $(".telspan").css({color:"green"});
+                verify = true;
             }else{
                 $(".telspan").html("手机号为13/14/15/18开头，限制为11位");
                 $(".telspan").css({color:"red"});
+                verify = false;
+            }
+            return str;
+        }
+        //按钮都禁用了，二次验证的时候哪来的点击事件？
+        $("#zhuceBtn").click(function(){
+            if (verify && verifyUserName() && verifyUserPass() && verifyUserSex() && verifyUserAge() && verifyUserTel()){
+                //所有条件都满足，form表单可以提交
+                $("form").submit();
+               //当所有条件都满足的时候，移除禁用属性，可以注册
+               //$('#zhuceBtn').attr("disabled","false");
+            }else{
+                //当有一个条件不满足的时候，阻止form表单提交，禁止注册
+                $("form").submit(function(){
+                    return false;
+                });
+                //当有一个条件不满足的时候，添加禁用属性，禁止注册
+               //$('#zhuceBtn').attr("disabled","true");
             }
         });
-        //地址正则检验
-        $("#address").keyup(function(){
-            var pattern = /^[\u4e00-\u9fa5]+$/;   
-            var str = pattern.test($("#address").val());
-            if(str){
-                $(".addressspan").html("√");
-            }else{
-                $(".addressspan").html("密码长度为6-16位,且必须包含数字，字母");
-            }
-        })
-    }
+    })
 </script>
