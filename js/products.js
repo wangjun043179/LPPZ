@@ -15,5 +15,22 @@ $(".shops").hover(
 	}
 );
 $(".gwc").click(function(){
-	location.href = "index.html";
+	location.href = "shoppingCart.html";
+});
+$(".shopMain ul li").each(function(){
+	// 
+	$(this).click(function(){
+		var ids = $(this).attr("id");
+		$.ajax({
+			type:"get",
+			url:"php/getGoodsList.php",
+			async:true,
+			data:null,
+			success:function(data){
+				setCookie("goodsId",ids,10);
+				location.href = "productList.html";
+			},
+			dataType:"json",
+		});
+	});
 })
