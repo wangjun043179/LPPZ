@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <style type="text/css">
+    #GoTop {
+        display: none;
+        position: fixed;
+        bottom: 60px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        opacity: 0.7;
+        filter: alpha(opacity=70);
+        background: url(img/aboutUs/FullChannel/bg-gotop.png) no-repeat scroll 0 0;
+    }
+    #GoTop:hover {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+    </style>
+</head>
+<body>
+	<div id="GoTop" data-scroll-animate="fadeIn animated"></div>
+</body>
+
+</html>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<script type="text/javascript">
+	// 返回顶部
+	var oGoBack = $("#GoTop");
+	function goTop() {
+        oGoBack.on("click", function () {
+            var sc = $(window).scrollTop();
+            $('body,html').stop().animate({ scrollTop: 0 }, 500);
+        });
+	}
+    function checkGoBack() {
+        var sc = $(window).scrollTop();
+        var rwidth = $(window).width();
+        var iHeight = $(window).height();
+        if (sc > iHeight / 2) {
+            oGoBack.css("display", "block");
+        } else {
+            oGoBack.css("display", "none");
+        }
+    };
+    // 切换
+    // checkGoBack();
+
+    $(window).scroll(function () {
+        checkGoBack();
+        goTop();
+    })
+</script>

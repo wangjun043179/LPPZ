@@ -30,7 +30,7 @@
 			//判断是否注册成功
 			if($result){
 				//注册成功跳转到注册成功页面
-				header("location:regSuccess.html");
+				header("location:../regSuccess.html");
 			}else{
 				echo "注册失败";
 			}

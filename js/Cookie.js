@@ -11,7 +11,9 @@ function getCookie(key){
 	var arr = str.split(';');
 	for(var i in arr){
 		if(arr[i].indexOf(key) != -1){
-			return arr[i].substring((key+'=').length+1);
+			var pattern = /\s+/gi;
+			let c = arr[i].replace(pattern,'');
+			return c.substring(key.length+1);
 		}
 	}
 	return null;

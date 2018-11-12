@@ -20,9 +20,9 @@ gulp.task("copy-img",function(){
 	gulp.src("img/**/*").pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ\\img"));
 });
 //复制所有css文件
-// gulp.task("copy-css",function(){
-// 	gulp.src("css/**/*").pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ\\css"));
-// });
+gulp.task("copy-css",function(){
+	gulp.src("sass/**/*.css").pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ\\css"));
+});
 //复制所有js文件
 gulp.task("copy-js",function(){
 	gulp.src("js/**/*").pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ\\js"));
@@ -38,11 +38,14 @@ gulp.task("copy-php",function(){
 // gulp.task("data",function(){
 // 	gulp.src(["xml/*.xml","json/*.json","!json/test.json"]).pipe(gulp.dest("D:\\phpStudy\\WWW\\LPPZ\\data"));
 // });
+gulp.task("build",["copy-html","copy-img","copy-js","sass","copy-php"],function(){
+	console.info("OK!");
+});
 //监听，自动复制
 gulp.task("watch",function(){
 	gulp.watch("*.html",["copy-html"]);
 	gulp.watch("img/**/*",["copy-img"]);
-	// gulp.watch("css/**/*.css",["copy-css"]);
+	gulp.watch("sass/**/*.css",["copy-css"]);
 	gulp.watch("js/**/*.js",["copy-js"]);
 	gulp.watch("sass/**/*.scss",["sass"]);
 	gulp.watch("php/*.php",["copy-php"]);

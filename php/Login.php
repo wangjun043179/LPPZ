@@ -13,7 +13,7 @@
 	$result = mysql_query($sqlstr,$con);
 	$rows = mysql_num_rows($result);
 	if($rows!=0){
-		header('location:index.html');
+		header('location:../index.html');
 	}else{
 		echo "用户不存在或密码输入错误，请检查后重新输入";
 	}

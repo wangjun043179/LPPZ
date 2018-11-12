@@ -1,19 +1,29 @@
+/*首页样式*/
 @charset "utf-8";
+/*引入公共样式*/
 @import "public";
-/*session*/
+
+/*session区域*/
 .session{
+	width: 100%;
 	background:#f04e28;
+	height: 100%;
+	box-sizing:border-box;
+	padding-top: 90px;
+	padding-bottom: 60px;
 }
 .session-cen{
 	width:1200px;
-	height:505px;
+	// height:505px;
+	height: 100%;
 	margin:0 auto;
 	background-color:#f04e28;
 	background-image:url(../img/index/bg-home-bd.png);
 	background-repeat:no-repeat;
-	background-size:900px auto;
+	background-size:auto 100%;
 	background-position:center top;
 }
+/*轮播图盒子*/
 .silderBox{
 	width:220px;
 	height:150px;
@@ -31,8 +41,10 @@
 	width:211px;
 	height:140px;
 }
-/*footer*/
+
+/*footer区域*/
 footer{
+	width: 100%;
 	height:35px;
 	padding-top:25px;
 	text-align:center;
@@ -40,4 +52,6 @@ footer{
 	background-image:url(../img/index/bg-footer-border.png);
 	background-repeat:repeat-x;
 	background-position:0 top;
+	position: absolute;
+	bottom: 0;
 }

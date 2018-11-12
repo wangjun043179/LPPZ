@@ -13,7 +13,7 @@ window.onload = function(){
 						$("#ProductName").html(data[i].goodsName);
 						$(".price span").html(data[i].goodsPrice);
 						$(".zongPrice span").html(data[i].goodsPrice);
-						$("#total").html(data[i].goodsPrice);
+						$("#total").html("0.0");
 						$("#ProductImg").attr("src",data[i].goodsImg);
 					}
 				}
@@ -36,9 +36,11 @@ window.onload = function(){
 			total();
 		}
 	}
+
 	//价格
 	//循环这些数量按钮
 	$(".numBtn").each(function(){
+		// 点击数量按钮时，即数量变化时
 		$(this).click(function(){
 			//点击数量按钮，获取它的值
 			let nums = $(this).val();
@@ -52,20 +54,40 @@ window.onload = function(){
 			
 			//数量不能小于0
 			if(nums<=0){
+				// 如果数量小于等于0，数量按钮固定为0
 				this.value = "0";
-				span.html("0");
+				// 这个商品的总价变为0.00
+				span.html("0.00");
 			}else{
-				span.html(price*nums);
+				// 如果数量大于0，计算这个商品的总价
+				span.html((price*nums).toFixed(1));
 			}
+			// 调用合计函数，计算价格
 			total();
 		});
 	});
+
+	// 全选插件
+	$("#checkAll").bindCheck($(".shmid :checkbox"),$(""));
+    // 当点击复选框时，调用合计函数
+    $(".check").click(function(){
+        total();
+    });
+    // 当点击全选框时，调用合计函数
+    $("#checkAll").click(function(){
+        total();
+    });
+
 	// 合计函数
 	function total(){
 		//合计
-		$("#total").html("0");
+		$("#total").html("0.00");
+		// 循环所有的商品的总价
 		$(".zongPrice span").each(function(){
-			$("#total").html(parseFloat($("#total").html())+parseFloat($(this).html()));
+			// 如果当前商品的复选框是选中的，才把这个商品的总价计算到合计里
+			if($(this).parents(".tr").find(".check").prop("checked")){
+				$("#total").html((parseFloat($("#total").html())+parseFloat($(this).html())).toFixed(1));
+			}
 		});
 	}
 }
