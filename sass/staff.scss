@@ -1,0 +1,127 @@
+/*良品全渠道样式*/
+@charset "utf-8";
+/*引入公共样式*/
+@import "public";
+
+header {
+	margin: 0;
+    height: 108px;
+    // padding-bottom: 18px;
+    background: url(../img/aboutUs/bg-navs-border.png) repeat-x 0 bottom;
+}
+
+.ConTit:before{
+	content: "";
+    position: absolute;
+    top: 4px;
+    left: 75px;
+    height: 12px;
+    border: solid 4px #f04e28;
+    border-radius: 4px;
+}
+.con{
+	padding-top: 80px;
+	color: #f04e28;
+	padding-bottom: 600px;
+	background: none no-repeat scroll center bottom;
+	background-image: url(../img/news/bg-cols-b2.jpg);
+	/*标题*/
+	.ConTit{
+		position: relative;
+		height: 40px;
+		padding-left: 95px;
+		font-weight: bold;
+		padding-bottom: 20px;
+		
+		h2{
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 4px;
+		}
+		p{
+			font-size: 14px;
+		}
+	}
+	/*无缝滚动轮播图*/
+	.Rolling{
+		height: 1000px;
+		position: relative;
+
+		.RollingBox{
+			width: 1200px;
+			height: 540px;
+			margin: 0 auto;
+			overflow: hidden;
+			position: relative;
+			ul{
+				height: 540px;
+				width: 4200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+				li{
+					float: left;
+					width: 300px;
+					height: 540px;
+					position: relative;
+					div{
+						width: 24px;
+						height: 24px;
+						background: #f04e28;
+						border: 4px solid white;
+						border-radius: 50%;
+						position: absolute;
+						top: 45%;
+						left: 40%;
+					}
+				}
+			}
+		}
+		
+		.jiantou{
+			.icon-fa-angle-left{
+				position: absolute;
+				left: 0px;
+				top: 160px;
+			}
+			.icon-fa-angle-right{
+				position: absolute;
+				right: 0;
+				top: 160px;
+			}
+			i{
+				font-size: 60px;
+			}
+		}
+	}
+}
+.information{
+	width: 1366px;
+	height: 768px;
+	background: rgba(0,0,0,0.4);
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	img{
+		width: 653px;
+		height: 590px;
+		position: absolute;
+		left: 26%;
+		top: 5%; 
+	}
+	a{
+		display: block;
+		width: 30px;
+		height: 30px;
+		background: url(../img/news/StaffDemeanor/icon.png);
+		background-position: -149px -31px;
+		position: fixed;
+		left: 73%;
+		top: 4%;
+	}
+	a:hover{
+		background-position: -180px -31px;
+	}
+}

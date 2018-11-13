@@ -64,6 +64,7 @@ $('#FDJ')[0].onmousedown = function(event){
 $(".choiceImgs li").each(function(i){
 	$(this).mouseover(function(){
 		var url = $(this).css("backgroundImage").replace('url(','').replace(')','');
+		console.log(url);
 		$('#box').css({"backgroundImage":"url("+url+")"});
 		$('#showBox').css({"backgroundImage":"url("+url+")"});
 	})
